@@ -24,44 +24,22 @@ namespace CsharpFundamentals
             } else
             {
                 var splitInput = userInput.Split('-');
-                var duplicates = false;
+                //var duplicates = false;
                 List<int> inputArr = new List<int>();
 
-                //[1,2,3] i = 0,1,2
-                //[1,2,3] j = 1,2
+                var counter = 0;
 
-                //i loops 0,1,2,3
-                //j loops 1,2,3,4
-
-                //first loop
-                //i = 0, val = 1 & j = 1, val = 1 (Not Dup)
-
-                //i = 0, val = 1 & j = 2, val = 3 (Not Dup)
-
-
-                //second loop
-                //i = 1, val = 1 & j = 1, val = 2(Not Dup)
-
-                //i = 1, val = 2 & j = 2, val = 3(Not Dup)
-
-                //i = 1, val = 3 & j = 3, val = 1(Not Dup)
-
-
-                for (int i = 0; i < splitInput.Length; i++) {
-                    for (int j = 0; j < splitInput.Length - 1; j++)
+                for (int i = 0; i <= splitInput.Length - 1; i++) {
+                    for (int j = 0; j <= splitInput.Length - 1; j++)
                     {
-                        if (int.Parse(splitInput[i]) != int.Parse(splitInput[j + 1]))
-                            {
-                            duplicates = false;
-                        } else
+                        if (int.Parse(splitInput[i]) == int.Parse(splitInput[j]))
                         {
-                            duplicates = true;
-                            break;
-                        }
+                            counter++;
+                        } 
                     }
                 }
 
-                if (duplicates)
+                if (counter > splitInput.Length)
                 {
                     Console.WriteLine("Duplicates");
                 } else
